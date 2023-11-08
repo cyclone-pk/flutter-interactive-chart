@@ -147,7 +147,9 @@ class ChartPainter extends CustomPainter {
         Offset(x, params.fitVolume(volume)),
         Paint()
           ..strokeWidth = thickWidth
-          ..color = color,
+          ..color = (open > close
+          ? params.style.priceLossColor
+          : params.style.priceGainColor),
       );
     }
     // Draw trend line

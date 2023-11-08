@@ -118,8 +118,9 @@ class ChartPainter extends CustomPainter {
     final close = candle.close;
     final high = candle.high;
     final low = candle.low;
+    var color;
     if (open != null && close != null) {
-      final color = open > close
+       color = open > close
           ? params.style.priceLossColor
           : params.style.priceGainColor;
       canvas.drawLine(
@@ -147,9 +148,7 @@ class ChartPainter extends CustomPainter {
         Offset(x, params.fitVolume(volume)),
         Paint()
           ..strokeWidth = thickWidth
-          ..color = (open > close
-          ? params.style.priceLossColor
-          : params.style.priceGainColor),
+          ..color = color,
       );
     }
     // Draw trend line

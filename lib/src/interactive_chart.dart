@@ -10,6 +10,12 @@ import 'chart_style.dart';
 import 'painter_params.dart';
 
 class InteractiveChart extends StatefulWidget {
+
+    void resetZoom() {
+    _interactiveChartKey.currentState?.resetZoom();
+  }
+
+  
   /// The full list of [CandleData] to be used for this chart.
   ///
   /// It needs to have at least 3 data points. If data is sufficiently large,
@@ -100,6 +106,17 @@ class _InteractiveChartState extends State<InteractiveChart> {
   late Offset _initialFocalPoint;
   PainterParams? _prevParams; // used in onTapUp event
 
+
+  void resetZoom() {
+  final w = _prevChartWidth ?? 0;
+  final count = min(widget.candles.length, widget.initialVisibleCandleCount);
+  _candleWidth = w / count;
+  _startOffset = (widget.candles.length - count) * _candleWidth;
+  setState(() {});
+}
+
+
+  
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

@@ -11,9 +11,6 @@ import 'painter_params.dart';
 
 class InteractiveChart extends StatefulWidget {
 
-    void resetZoom() {
-    _interactiveChartKey.currentState?.resetZoom();
-  }
 
   
   /// The full list of [CandleData] to be used for this chart.

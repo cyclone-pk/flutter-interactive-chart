@@ -84,10 +84,10 @@ class InteractiveChart extends StatefulWidget {
         super(key: key);
 
   @override
-  _InteractiveChartState createState() => _InteractiveChartState();
+    InteractiveChartState createState() => InteractiveChartState();
 }
 
-class _InteractiveChartState extends State<InteractiveChart> {
+class InteractiveChartState extends State<InteractiveChart> {
   // The width of an individual bar in the chart.
   late double _candleWidth;
 
